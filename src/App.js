@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import MyHeader from "./components/MyHeader";
 
 const Container = styled.div`
   display: flex;
@@ -16,11 +17,14 @@ const Text = styled.p`
 
 function App() {
   return (
+    <div className="App">
     <Container>
       <Text>
         My app
       </Text>
     </Container>
+    <MyHeader/>
+    </div>
   );
 }
 
