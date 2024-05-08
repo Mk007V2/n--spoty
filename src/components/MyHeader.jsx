@@ -1,13 +1,34 @@
 import React from 'react'
-import SignUp from './SignUp'
-import LogIn from './LogIn'
+import SignUpItem from './SignUpItem'
+import LogInItem from './LogInItem'
+import styled from "styled-components";
+
+const Container = styled.div`
+  //display: flex;
+  height: 100%;
+  background-color: #47449E;
+  margin: -8px;
+  margin-bottom: 8px;
+  padding: 6px;
+  display:flex;
+  justifyContent:right;
+  alignItems:right;
+  paddingRight:50px;
+`
 
 const MyHeader = () => {
   return (
-    <div>
-      <SignUp/>
-      <LogIn/>
-    </div>
+    <Container
+        style={{
+            display:"flex",
+            justifyContent:"right",
+            alignItems:"right",
+            paddingRight:"50px",
+            backgroundColor:""
+    }}>
+      <SignUpItem/>
+      <LogInItem/>
+    </Container>
   )
 }
 
