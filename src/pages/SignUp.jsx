@@ -43,7 +43,7 @@ const SignUp = () => {
                         marginTop: "0px",
                         width: "15%",
                     }}
-                    type={"text"}
+                    type={"password"}
                     placeholder={"Password"}
                     onChange={(e) => setPassword(e.target.value)}
                 />

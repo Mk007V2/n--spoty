@@ -27,8 +27,7 @@ function App() {
                 <MyHeader/>
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={<SignUp/>} exact={false}/>
-                        <Route path="/signup" element={<SignUp/>} exact={false}/>
+                        <Route path="*" element={<SignUp/>} exact={false}/>
                         <Route path="/login" element={<LogIn/>} exact={false}/>
                         <Route path="/feed" element={<Feed/>} exact={false}/>
                         <Route path="/track/:id" element={<Music/>} exact={false}/>

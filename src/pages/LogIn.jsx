@@ -14,7 +14,7 @@ const LogIn = () => {
     const checkCredentials = () => {
         if (username === logUsername && password === logPassword) {
             alert('You are logged in now.')
-            navigate('/')
+            navigate('/feed')
         } else {
             alert('Your credentials are incorrect! Try again, please.')
         }
@@ -56,7 +56,7 @@ const LogIn = () => {
                         marginTop:"0px",
                         width:"15%",
                     }}
-                    type={"text"}
+                    type={"password"}
                     placeholder={"Password"}
                     onChange={(e) => setLogPassword(e.target.value)}
                 />
