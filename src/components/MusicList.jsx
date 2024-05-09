@@ -19,7 +19,6 @@ const MusicList = (props) => {
     return (
         <div style={{display: "flex", flexDirection: "column"}}>
             {props.map((item, index) =>
-                // console.log(item.videos);
                 <MusicItem props={item} key = {item.id}/>
             )}
         </div>

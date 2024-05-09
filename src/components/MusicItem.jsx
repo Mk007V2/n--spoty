@@ -3,10 +3,9 @@ import {Card} from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
 const MusicItem = (props) => {
-
     props = props.props
     if (!props.id){
-        console.log(props.videos)
+        // console.log(props.videos)
         return(
             <div>Loading track...</div>
         )
@@ -31,7 +30,7 @@ const MusicItem = (props) => {
                         height: "100%",
                         width:"auto"
                     }}
-                    alt="PHOTO"
+                    alt="THUMBNAIL"
                     src={
                         "https:img.youtube.com/vi/" + props.videos[0].uri.split('watch?v=')[1] + "/sddefault.jpg"}/>}
             >

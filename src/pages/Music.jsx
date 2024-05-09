@@ -7,19 +7,12 @@ import likeIcon from "../LIKE.png"
 
 const Music = () => {
     const [liked,  setLiked] = useState("#333333")
-    let cache = JSON.parse(localStorage.getItem("freesound"))
-    const id = useParams()['id'];
-    let arrayIndex = 0
-    for (let i = 0; i < cache.length; i++) {
-        if (cache[i].id === id){
-            arrayIndex = i;
-            // console.log(11111)
-        }
-    }
-    let props = cache[arrayIndex]
+    const cache = JSON.parse(localStorage.getItem("freesound"))
+    const { id } = useParams()
+    const props = cache.find(item => item.id == id);
     return (
-        <div sttyle={{display: "flex",
-                    flexDirection: "row",
+        <div sstyle={{display: "flex",
+            flexDirection: "row",
         }}>
             <Image style={{
                 display: "flex",
@@ -27,18 +20,18 @@ const Music = () => {
                 flex: 2,
                 height: "100%",
                 width: "auto"
-                }}
-                alt="PHOTO"
-                src={
-                    "https:img.youtube.com/vi/" + props.videos[0].uri.split('watch?v=')[1] + "/sddefault.jpg"}/>
-                    <img 
-                        width = {500} 
-                        src = {likeIcon} 
-                        onClick={() => setLiked("#FF0000")}
-                        style={{
-                            margin:"100px",
-                            backgroundColor: liked
-                    }}/>
+            }}
+                   alt="PHOTO"
+                   src={
+                       "https:img.youtube.com/vi/" + props.videos[0].uri.split('watch?v=')[1] + "/sddefault.jpg"}/>
+            <img
+                width = {500}
+                src = {likeIcon}
+                onClick={() => setLiked("#FF0000")}
+                style={{
+                    margin:"100px",
+                    backgroundColor: liked
+                }}/>
 
             <Meta
                 title={<Title style={{color:"#121220"}} level={2}>{props.title}</Title>}
@@ -50,7 +43,7 @@ const Music = () => {
                     color:"#121220"
                 }}
             />
-            {JSON.stringify(cache[arrayIndex])}
+            {JSON.stringify(props)}
         </div>
     );
 };
