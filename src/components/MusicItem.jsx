@@ -2,7 +2,6 @@ import React from 'react';
 import {Card} from "antd";
 import Meta from "antd/es/card/Meta";
 import Title from "antd/es/typography/Title";
-
 const MusicItem = (props) => {
 
     props = props.props
@@ -12,23 +11,15 @@ const MusicItem = (props) => {
             <div>Loading track...</div>
         )
     }
-    // console.log(33)
-    // console.log(props.videos[0].uri)
-
-    // https:youtube.com/watch?v=hzCf6yRnK0Y
-    // https:img.youtube.com/vi/hzCf6yRnK0Y/sddefault.jpg
     return (
         <a href={"/track/" + props.id} rel="noopener noreferrer" style={{display: "flex"}}>
             <div style={{display: "flex", flex: 1}}></div>
             <Card
                 hoverable
                 style={{
-                    // width: 280,
                     margin: "8px",
                     padding: "0px",
                     display: "flex",
-                    // flexDirection: "row",
-                    // flexWrap:"wrap",
                     flex: 100,
                     height: "10%"
                 }}
@@ -53,7 +44,6 @@ const MusicItem = (props) => {
                         margin: "8px"
                     }}
                 />
-                <p>a</p>
             </Card>
             <div style={{display: "flex", flex: 1}}></div>
         </a>

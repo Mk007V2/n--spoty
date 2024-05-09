@@ -1,10 +1,25 @@
-    import React from 'react';
+import React, { useState } from 'react';
 import {Button, Input} from 'antd';
 import Title from "antd/es/typography/Title";
-import styled from "styled-components";
+import { useContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 
 const LogIn = () => {
+    const navigate = useNavigate()
+    const { username, password } = useContext()
+    const [logUsername, setLogUsername] = useState('')
+    const [logPassword, setLogPassword] = useState('')
+
+    const checkCredentials = () => {
+        if (username === logUsername && password === logPassword) {
+            alert('You are logged in now.')
+            navigate('/')
+        } else {
+            alert('Your credentials are incorrect! Try again, please.')
+        }
+    }
+
     return (
         <div>
             <div
@@ -29,6 +44,7 @@ const LogIn = () => {
                     }}
                     type={"text"}
                     placeholder={"Username"}
+                    onChange={(e) => setLogUsername(e.target.value)}
                 />
                 <Title level = {4}>Enter password</Title>
                 <Input
@@ -42,9 +58,10 @@ const LogIn = () => {
                     }}
                     type={"text"}
                     placeholder={"Password"}
+                    onChange={(e) => setLogPassword(e.target.value)}
                 />
                 <Button
-                    onClick={() => {console.log("LogIn")}}
+                    onClick={() => checkCredentials()}
                     style={{marginTop:"10px"}}
                 >
                     Enjoy music !

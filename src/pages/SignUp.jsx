@@ -1,8 +1,13 @@
 import React from 'react';
 import Title from "antd/es/typography/Title";
 import {Button, Input} from "antd";
+import { useContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+    const navigate = useNavigate()
+    const { setUsername, setPassword } = useContext()
+
     return (
             <div
                 style={{
@@ -26,6 +31,7 @@ const SignUp = () => {
                     }}
                     type={"text"}
                     placeholder={"Username"}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <Title level={4}>Enter password</Title>
                 <Input
@@ -39,11 +45,10 @@ const SignUp = () => {
                     }}
                     type={"text"}
                     placeholder={"Password"}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
                 <Button
-                    onClick={() => {
-                        console.log("LogIn")
-                    }}
+                    onClick={() => navigate('/login')}
                     style={{marginTop: "10px"}}
                 >
                     Enjoy music !
@@ -52,7 +57,7 @@ const SignUp = () => {
                     level={5}
                     style={{color: "#B3B3B3"}}
                 >
-                    Already have an account? <a href={"/signup"} style={{color: "#6B69B3"}}>Log in here</a>
+                    Already have an account? <a href={"/login"} style={{color: "#6B69B3"}}>Log in here</a>
 
                 </Title>
         </div>

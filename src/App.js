@@ -1,37 +1,42 @@
-// import styled from "styled-components";
 import MyHeader from "./components/MyHeader";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import Feed from "./pages/Feed";
-import axios from "axios";
-import LogInItem from "./components/LogInItem";
-import API from "./api/API";
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Music from "./pages/Music";
+import React, { createContext, useState } from "react";
 
-// const Container = styled.div`
-//   //display: flex;
-//   //flex: 1;
-//   height: 100%;
-//   background-color: #47449E;
-//   margin: -8px;
-//   margin-bottom: 8px;
-//   padding: 6px;
-// `
-//
-// const Text = styled.p`
-//   display: flex;
-//   flex: 1;
-//   font-size: 40px;
-// `
+const ContextProvider = createContext(null)
+
+export const useContext = () => {
+    return React.useContext(ContextProvider)
+}
 
 function App() {
-  return (
-    <div className="App">
-      <MyHeader/>
-        <Feed/>
-        {/*<LogIn/>*/}
-        {/*<SignUp/>*/}
-    </div>
-  );
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    return (
+        <ContextProvider.Provider value={{
+            username,
+            setUsername,
+            password,
+            setPassword
+        }}>
+            <div style={{ margin: "-8px" }}>
+                <MyHeader/>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<SignUp/>} exact={false}/>
+                        <Route path="/signup" element={<SignUp/>} exact={false}/>
+                        <Route path="/login" element={<LogIn/>} exact={false}/>
+                        <Route path="/feed" element={<Feed/>} exact={false}/>
+                        <Route path="/track/:id" element={<Music/>} exact={false}/>
+                    </Routes>
+                </BrowserRouter>
+            </div>
+        </ContextProvider.Provider>
+    )
 }
 
 export default App;

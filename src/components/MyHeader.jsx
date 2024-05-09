@@ -2,33 +2,42 @@ import React from 'react'
 import SignUpItem from './SignUpItem'
 import LogInItem from './LogInItem'
 import styled from "styled-components";
+import Title from "antd/es/typography/Title";
 
 const Container = styled.div`
-  //display: flex;
-  height: 100%;
-  background-color: #47449E;
-  margin: -8px;
-  margin-bottom: 8px;
-  padding: 6px;
-  display:flex;
-  justifyContent:right;
-  alignItems:right;
-  paddingRight:50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #47449E;
 `
 
 const MyHeader = () => {
   return (
-    <Container
+    <a href='/feed'>
+      <Container
         style={{
-            display:"flex",
-            justifyContent:"right",
-            alignItems:"right",
-            paddingRight:"50px",
-            backgroundColor:""
-    }}>
-      <SignUpItem/>
-      <LogInItem/>
-    </Container>
+            padding: "0px 50px",
+        }}>
+          <Container>
+              <img
+                  alt='logo'
+                  width = {50}
+                  src={"https://e7.pngegg.com/pngimages/831/983/png-clipart-computer-icons-graphics-spotify-icon-bluetooth-text-logo.png"}
+              />
+              <Title 
+                level = {3}
+                style={{color:"#B4B1FF"}}
+              >
+                Spoty by Mk
+                </Title>
+          </Container>
+          <Container>
+              <SignUpItem/>
+              <LogInItem/>
+          </Container>
+      </Container>
+    </a>
   )
 }
 

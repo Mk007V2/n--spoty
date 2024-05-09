@@ -11,7 +11,7 @@ export default class PostService {
             // console.log(response[0].id)
         }else{
 
-            for (let x = 0; x < 16; x++) {
+            for (let x = 0; x < 20; x++) {
                 // console.log(x+249504);
 
                 await new Promise(r => setTimeout(r, 200));
